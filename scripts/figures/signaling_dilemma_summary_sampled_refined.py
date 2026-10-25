@@ -68,7 +68,7 @@ for ax in axes[0, 1:]:
 
 for t, T in enumerate(T_values):
     ax = axes[0, t]
-    for mask, marker in [(solved[t], "o"), (remains[t], "X")]:
+    for mask, marker, size in [(solved[t], "o", 11), (remains[t], "X", 8)]:
         a, r = np.nonzero(mask)
         order = np.argsort(improvement[t, a, r])
         ax.scatter(
@@ -78,7 +78,7 @@ for t, T in enumerate(T_values):
             cmap="viridis",
             norm=norm,
             marker=marker,
-            s=11,
+            s=size,
             edgecolor="black",
             linewidth=0.3,
             alpha=0.9,
@@ -130,7 +130,7 @@ for t, T in enumerate(T_values):
     ax.grid(True)
 
 axes[0, 1].set_xlabel(r"Reward ratio $R$")
-axes[1, 1].set_xlabel("Baseline social optimum")
+axes[1, 1].set_xlabel("Social optimum without signaling")
 axes[0, 0].set_ylabel(r"Distance $d$")
 axes[1, 0].set_ylabel("Worst Nash payoff")
 
@@ -151,6 +151,7 @@ def marker(label, shape, face="0.75", edge="black", width=0.3, size=3):
 
 LEGEND_STYLE = dict(
     loc="upper left",
+    handlelength=1,
     handletextpad=0.2,
     borderpad=0.3,
     labelspacing=0.2,
@@ -158,13 +159,13 @@ LEGEND_STYLE = dict(
     framealpha=0.9,
 )
 axes[0, 0].legend(
-    handles=[marker("dilemma resolved", "o"), marker("dilemma remains", "X")],
+    handles=[marker("dilemma resolved", "o"), marker("dilemma remains", "X", size=2.6)],
     **LEGEND_STYLE,
 )
 # In the last panel, whose upper left is empty; elsewhere it would cover data.
 axes[1, 2].legend(
     handles=[
-        marker("baseline", "s", face="white", edge="0.35", width=0.4, size=2.5),
+        marker("without signaling", "s", face="white", edge="0.35", width=0.4, size=2.5),
         marker("with signaling", "o", size=4.2),
     ],
     **LEGEND_STYLE,
