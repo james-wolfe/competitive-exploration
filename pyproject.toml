@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "competitive-exploration"
+version = "0.1.0"
+description = "Code for the paper Competitive exploration in structured environments"
+authors = [
+    { name = "James P. Wolfe" },
+    { name = "Joshua B. Plotkin" },
+]
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel",
+    "matplotlib",
+    "nbconvert",
+    "numpy",
+    "pandas>=3.0.6",
+    "scipy",
+    "tqdm",
+]
+
+[dependency-groups]
+dev = ["jupyterlab"]

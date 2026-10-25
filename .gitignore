@@ -1,0 +1,23 @@
+# Generated outputs (data are archived separately; see README)
+/data/generated/*
+!/data/generated/.gitkeep
+/figures/
+
+# Exploratory work kept out of the repository
+/notebooks/experiments/
+
+# Environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+**/.ipynb_checkpoints/
+*.egg-info/
+build/
+dist/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+*.swp
+*~
