@@ -1,9 +1,9 @@
 # Competitive exploration
 
 Code for *Competitive exploration in structured environments* by James P. Wolfe and
-Joshua B. Plotkin ([arXiv link to be added]). It computes every figure and table in the
-paper from the model, using exact Markov-chain calculations, plus simulations that check
-them.
+Joshua B. Plotkin ([arXiv:2610.34643](https://arxiv.org/abs/2610.34643)). It computes
+every figure and table in the paper from the model, using exact Markov-chain calculations,
+plus simulations that check them.
 
 ## Setup
 
@@ -153,7 +153,10 @@ The package modules follow the paper:
 ## Citation
 
 James P. Wolfe and Joshua B. Plotkin, *Competitive exploration in structured
-environments*, arXiv (2026) [identifier to be added].
+environments*, [arXiv:2610.34643](https://arxiv.org/abs/2610.34643) (2026).
+
+The version of the code used for the paper is archived on Zenodo at
+[doi:10.5281/zenodo.23671168](https://doi.org/10.5281/zenodo.23671168).
 
 ## License
 
