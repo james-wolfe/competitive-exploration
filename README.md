@@ -104,11 +104,11 @@ the script of the same name in `scripts/generate/`; `data/README.md` describes t
 | Paper | Script or notebook | Data |
 |---|---|---|
 | Figure 1 | `lattice_schematic.py` | |
-| Figure 2 | `single_agent_optimal_exploration.py` | `single_agent_rewards.npz`, `opt_eps_single.npz` |
+| Figure 2 | `single_agent_optimal_exploration_one_row.py` | `single_agent_rewards.npz`, `opt_eps_single.npz` |
 | Figure 3 | `payoff_matrix_and_slices.py` | `two_agent_payoffs.npz` |
 | Figure 4 | `four_regimes_payoff_and_localBR.py` | `two_agent_local_br.npz` |
-| Figure 5 | `nash_social_dilemma_classification.py` | `sweep_nash_social_dilemma_fine401.npz` |
-| Figure 6 | `signaling_dilemma_summary_sampled_refined.py` | `sweep_nash_social_dilemma_fine401.npz`, `signaling_fine401.npz` |
+| Figure 5 | `nash_social_dilemma_classification_two_gamma_wide.py` | `sweep_nash_social_dilemma_fine401.npz` |
+| Figure 6 | `signaling_dilemma_summary_sampled_refined_two_gamma_wide.py` | `sweep_nash_social_dilemma_fine401.npz`, `signaling_fine401.npz` |
 | Figure S1 | `markov_td_sim.py` | `td_learner_sim.npz` |
 | Figure S2 | `threshold_reward_ratio.py` | `threshold_sweep.npz` |
 | Figure S3 | `opt_eps_poisson.py` | `opt_eps_poisson.npz`, `opt_eps_poisson_comparison.npz` |
@@ -118,6 +118,9 @@ the script of the same name in `scripts/generate/`; `data/README.md` describes t
 | Figure S7 | `global_social_optimum_classification.py` | `sweep_nash_social_dilemma_fine401.npz` |
 | Figure S8 | `two_site_model.py` | `two_site_local_br.npz`, `two_agent_local_br.npz` |
 | Figure S9 | `hitting_stats.py` | `hitting_stats.npz` |
+| Figure 2B, three discount factors | `opt_eps_single_three_gamma.py` | `opt_eps_single.npz` |
+| Figure 5, three discount factors | `nash_social_dilemma_classification.py` | `sweep_nash_social_dilemma_fine401.npz` |
+| Figure 6, three discount factors | `signaling_dilemma_summary_sampled_refined.py` | `sweep_nash_social_dilemma_fine401.npz`, `signaling_fine401.npz` |
 | Table 1 | Model parameters, no data | |
 | Table 2 | `notebooks/tables.ipynb` | `sweep_nash_social_dilemma_fine401.npz` |
 | Table 3 | `notebooks/tables.ipynb` | `locally_stable_points.npz` |

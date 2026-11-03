@@ -1,4 +1,4 @@
-"""Figure 6: which strict dilemmas with both agents exploring at the worst Nash
+"""Figure S10: which strict dilemmas with both agents exploring at the worst Nash
 equilibrium are removed by signaling, and by how much the worst Nash payoff rises.
 
 For legibility the top row shows every seventh candidate reward ratio at each

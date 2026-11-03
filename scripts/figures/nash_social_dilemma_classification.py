@@ -1,4 +1,4 @@
-"""Figure 5: type of the Nash equilibria and of the socially optimal locally stable
+"""Figure S6: type of the Nash equilibria and of the socially optimal locally stable
 point over reward ratio and distance, with strict social dilemmas hatched."""
 
 import matplotlib as mpl

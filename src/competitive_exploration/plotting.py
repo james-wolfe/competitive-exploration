@@ -22,6 +22,9 @@ PNAS_WIDTHS = {"single": 8.7 * CM, "one_and_half": 11.4 * CM, "double": 512 / 72
 # Side of the square panels of Figures 5 and 6, in inches: about the size of a Figure 4
 # panel.
 PANEL_SIZE = 1.4
+# Side of the square panels of the two-discount-factor Figures 5 and 6, in inches: as
+# large as fits two panels and a legend or colorbar in a 3/4-page (11.4 cm) figure.
+TWO_GAMMA_PANEL_SIZE = 1.36
 
 
 def use_paper_style(final_size=False):
