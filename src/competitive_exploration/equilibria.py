@@ -8,7 +8,7 @@ player 2's index first, so that it matches the rows and columns of Z.
 import numpy as np
 from scipy.ndimage import maximum_filter
 
-# Outcome types used to classify equilibria (Figures 4, 5, S7, S8).
+# Outcome types used to classify equilibria (Figures 4, 5, S6, S9, S11).
 BOTH_STAY, BOTH_EXPLORE, ANTI_COORDINATION, MULTIPLE, OTHER = range(5)
 
 

@@ -1,5 +1,5 @@
 """Reward-maximizing rate when the distance is random, d ~ Poisson(lambda) + 1,
-over a fine grid of mean distances (Figure S3, top)."""
+over a fine grid of mean distances (Figure S4, top)."""
 
 import numpy as np
 from tqdm import tqdm

@@ -110,17 +110,17 @@ the script of the same name in `scripts/generate/`; `data/README.md` describes t
 | Figure 5 | `nash_social_dilemma_classification_two_gamma_wide.py` | `sweep_nash_social_dilemma_fine401.npz` |
 | Figure 6 | `signaling_dilemma_summary_sampled_refined_two_gamma_wide.py` | `sweep_nash_social_dilemma_fine401.npz`, `signaling_fine401.npz` |
 | Figure S1 | `markov_td_sim.py` | `td_learner_sim.npz` |
-| Figure S2 | `threshold_reward_ratio.py` | `threshold_sweep.npz` |
-| Figure S3 | `opt_eps_poisson.py` | `opt_eps_poisson.npz`, `opt_eps_poisson_comparison.npz` |
-| Figure S4 | `sym_local_nash_location.py` | `sweep_nash_social_dilemma_fine.npz`, `local_max_eps_single.npz` |
-| Figure S5 | `worst_equilibrium_fitness_percentages.py` | `sweep_nash_social_dilemma_fine.npz`, `sweep_nash_social_dilemma_small_d.npz` |
-| Figure S6 | `local_br_mean_fitness_ratio.py` | `local_br_outcomes.npz` |
-| Figure S7 | `global_social_optimum_classification.py` | `sweep_nash_social_dilemma_fine401.npz` |
-| Figure S8 | `two_site_model.py` | `two_site_local_br.npz`, `two_agent_local_br.npz` |
-| Figure S9 | `hitting_stats.py` | `hitting_stats.npz` |
-| Figure 2B, three discount factors | `opt_eps_single_three_gamma.py` | `opt_eps_single.npz` |
-| Figure 5, three discount factors | `nash_social_dilemma_classification.py` | `sweep_nash_social_dilemma_fine401.npz` |
-| Figure 6, three discount factors | `signaling_dilemma_summary_sampled_refined.py` | `sweep_nash_social_dilemma_fine401.npz`, `signaling_fine401.npz` |
+| Figure S2 | `opt_eps_single_three_gamma.py` | `opt_eps_single.npz` |
+| Figure S3 | `threshold_reward_ratio.py` | `threshold_sweep.npz` |
+| Figure S4 | `opt_eps_poisson.py` | `opt_eps_poisson.npz`, `opt_eps_poisson_comparison.npz` |
+| Figure S5 | `sym_local_nash_location.py` | `sweep_nash_social_dilemma_fine.npz`, `local_max_eps_single.npz` |
+| Figure S6 | `nash_social_dilemma_classification.py` | `sweep_nash_social_dilemma_fine401.npz` |
+| Figure S7 | `worst_equilibrium_fitness_percentages.py` | `sweep_nash_social_dilemma_fine.npz`, `sweep_nash_social_dilemma_small_d.npz` |
+| Figure S8 | `local_br_mean_fitness_ratio.py` | `local_br_outcomes.npz` |
+| Figure S9 | `global_social_optimum_classification.py` | `sweep_nash_social_dilemma_fine401.npz` |
+| Figure S10 | `signaling_dilemma_summary_sampled_refined.py` | `sweep_nash_social_dilemma_fine401.npz`, `signaling_fine401.npz` |
+| Figure S11 | `two_site_model.py` | `two_site_local_br.npz`, `two_agent_local_br.npz` |
+| Figure S12 | `hitting_stats.py` | `hitting_stats.npz` |
 | Table 1 | Model parameters, no data | |
 | Table 2 | `notebooks/tables.ipynb` | `sweep_nash_social_dilemma_fine401.npz` |
 | Table 3 | `notebooks/tables.ipynb` | `locally_stable_points.npz` |
@@ -147,10 +147,10 @@ The package modules follow the paper:
 | `single_agent.py` | Model, "Markov chain formulation"; Methods, "The single-agent transition matrix" |
 | `two_agent.py` | Model, "Two competing agents"; Methods, "The two-agent transition matrix and reward vectors" |
 | `equilibria.py`, `local_br.py` | Results, "Two competing foragers play a game with multiple equilibria" and "Competition produces a social dilemma"; Methods, "Numerical computation of equilibria" |
-| `signaling.py`, `signaling_fast.py` | Results, "Signaling can remove suboptimal equilibria"; SI Section S8 |
+| `signaling.py`, `signaling_fast.py` | Results, "Signaling can remove suboptimal equilibria"; SI Section S10 |
 | `td_learner.py` | Model, "Interpretation as a temporal-difference or $Q$-learning problem" |
-| `poisson.py` | SI Section S1 |
-| `two_site.py` | SI Section S7 |
+| `poisson.py` | SI Section S3 |
+| `two_site.py` | SI Section S9 |
 | `plotting.py` | shared figure style |
 
 ## Citation

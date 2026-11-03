@@ -21,7 +21,7 @@ from competitive_exploration.plotting import (
 
 use_paper_style(final_size=True)
 # Bottom-row axis limits, by T, equal on both axes. Two removed dilemmas lie partly
-# outside them (SI Section S8.2): limits fitted to every point would stretch the
+# outside them (SI Section S10.2): limits fitted to every point would stretch the
 # T = 100000 panel to 1.9e5-8.8e5 because of the dilemma at d = 3, R = 9.03.
 LIMITS = {5000: (9211, 11445), 100000: (190217, 225800)}
 # Tick and legend labels at the smallest PNAS size, and short ticks, to save space.
@@ -52,7 +52,7 @@ worst = signaling["worst_nash_payoff"]
 improvement = 100 * (worst - base["worst_nash_payoff"]) / base["worst_nash_payoff"]
 
 # Every STRIDE-th candidate R at each (gamma, d), among candidates at which a Nash
-# equilibrium remains after signaling (SI Section S8.2).
+# equilibrium remains after signaling (SI Section S10.2).
 shown = np.zeros_like(signaling["candidate"])
 for t, a in np.ndindex(shown.shape[:2]):
     r = np.flatnonzero(signaling["candidate"][t, a] & np.isfinite(worst[t, a]))

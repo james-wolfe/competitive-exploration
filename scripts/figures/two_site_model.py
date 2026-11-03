@@ -1,4 +1,4 @@
-"""Figure S8: local best-response basins in the two-site model and the lattice model."""
+"""Figure S11: local best-response basins in the two-site model and the lattice model."""
 
 import matplotlib.pyplot as plt
 import numpy as np

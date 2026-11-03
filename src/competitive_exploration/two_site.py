@@ -1,4 +1,4 @@
-"""The two-site model without explicit spatial structure (Section S7).
+"""The two-site model without explicit spatial structure (Section S9).
 
 Each agent is in one of three states: U (has not found the high reward, at site 1),
 H (at site 2, the high reward) or L (has found the high reward, back at site 1).

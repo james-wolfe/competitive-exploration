@@ -59,7 +59,7 @@ def state_sites(d):
 def site_occupancy(d, eps, gamma):
     """Discounted time a lone agent spends at site 0 and at site d.
 
-    These are alpha-hat and beta-hat of Section S4: the agent's payoff is
+    These are alpha-hat and beta-hat of Section S6: the agent's payoff is
     R0 * alpha + Rd * beta, so one linear solve gives the payoff for every pair of
     reward values (Materials and Methods, "Linearity of the payoff in the two reward
     values").

@@ -1,4 +1,4 @@
-"""Figure S5: collective payoff at the worst locally stable point and at the worst Nash
+"""Figure S7: collective payoff at the worst locally stable point and at the worst Nash
 equilibrium, relative to the global optimum and to the best locally stable point."""
 
 import matplotlib.pyplot as plt

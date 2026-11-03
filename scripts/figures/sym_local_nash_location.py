@@ -1,4 +1,4 @@
-"""Figure S4: rate at the symmetric locally stable point, and its difference from the
+"""Figure S5: rate at the symmetric locally stable point, and its difference from the
 rate at the positive local maximum of a lone agent's reward curve."""
 
 import matplotlib.pyplot as plt

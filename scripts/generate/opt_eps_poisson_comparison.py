@@ -1,5 +1,5 @@
 """Optimal rate with a random distance minus the optimal rate at the matching fixed
-distance, on the grid of opt_eps_single.npz (Figure S3, bottom)."""
+distance, on the grid of opt_eps_single.npz (Figure S4, bottom)."""
 
 import numpy as np
 

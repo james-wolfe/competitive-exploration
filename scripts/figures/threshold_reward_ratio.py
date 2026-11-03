@@ -1,4 +1,4 @@
-"""Figure S2: the threshold reward ratio R* at which exploring first pays, over the distance
+"""Figure S3: the threshold reward ratio R* at which exploring first pays, over the distance
 d and the horizon T = 1/(1 - gamma), with slices at fixed T and at fixed d."""
 
 import matplotlib.pyplot as plt

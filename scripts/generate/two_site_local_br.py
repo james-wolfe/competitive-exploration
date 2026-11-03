@@ -1,4 +1,4 @@
-"""Local best-response basins in the two-site model at d = 4, R = 3 (Figure S8)."""
+"""Local best-response basins in the two-site model at d = 4, R = 3 (Figure S11)."""
 
 import numpy as np
 

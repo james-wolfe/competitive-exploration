@@ -1,5 +1,5 @@
 """Probability and time for a walker starting at site 1, before it has found site d,
-to reach site d before site 0: gambler's-ruin formulas and simulation (Figure S9)."""
+to reach site d before site 0: gambler's-ruin formulas and simulation (Figure S12)."""
 
 import numpy as np
 from scipy.linalg import solve_banded

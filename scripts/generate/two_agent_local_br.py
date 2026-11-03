@@ -1,4 +1,4 @@
-"""Payoffs, Nash equilibria, and local best-response basins in four regimes (Figures 4, S8)."""
+"""Payoffs, Nash equilibria, and local best-response basins in four regimes (Figures 4, S11)."""
 
 import numpy as np
 

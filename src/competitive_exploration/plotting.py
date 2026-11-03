@@ -106,7 +106,7 @@ def centers_to_edges(x):
 
 
 def plot_basins(ax, eps_grid, codes, endpoints, social_mask, scale=1.0):
-    """Basins of attraction of the local best-response dynamics (Figures 4 and S8).
+    """Basins of attraction of the local best-response dynamics (Figures 4 and S11).
 
     Shades each starting pair by the outcome it reaches, marks the endpoints in the
     color of their outcome, and rings the socially optimal endpoints. scale shrinks the

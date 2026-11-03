@@ -1,5 +1,5 @@
 """Two agents with signaling (Results, "Signaling can remove suboptimal equilibria";
-SI section S8.1).
+SI section S10.1).
 
 A strategy is a pair (eps, eps_switch): the exploration rate an agent uses until its
 competitor reaches site d, and the rate it switches to after that signal. If both
@@ -22,7 +22,7 @@ def signaling_payoff_grid(d, eps_grid, gamma, R0=1.0, Rd=1.0, progress=False):
     eps2_switch], where m = len(eps_grid).
 
     The joint chain has a transient phase, before either agent has reached site d,
-    and three terminal phases, in which both rates are fixed (Section S8.1). Each
+    and three terminal phases, in which both rates are fixed (Section S10.1). Each
     terminal phase is an ordinary two-agent chain, so its values are solved once per
     pair of rates. The transient phase enters only through the discounted number of
     times the chain enters each terminal state from the start, which needs one

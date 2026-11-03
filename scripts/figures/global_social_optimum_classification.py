@@ -1,4 +1,4 @@
-"""Figure S7: type of the strategy pair that maximizes the collective payoff."""
+"""Figure S9: type of the strategy pair that maximizes the collective payoff."""
 
 import matplotlib.pyplot as plt
 import numpy as np

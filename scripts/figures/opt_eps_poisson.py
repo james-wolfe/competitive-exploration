@@ -1,4 +1,4 @@
-"""Figure S3: optimal exploration rate when the distance is random, d ~ Poisson + 1,
+"""Figure S4: optimal exploration rate when the distance is random, d ~ Poisson + 1,
 and its difference from the optimum at the matching fixed distance."""
 
 import matplotlib.pyplot as plt

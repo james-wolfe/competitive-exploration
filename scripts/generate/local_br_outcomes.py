@@ -1,5 +1,5 @@
 """Collective payoff reached by the local best-response dynamics, averaged over all
-starting pairs on the grid of the baseline sweep (Figure S6). Trajectories that end
+starting pairs on the grid of the baseline sweep (Figure S8). Trajectories that end
 in a cycle count the first pair of the cycle they reach."""
 
 import numpy as np

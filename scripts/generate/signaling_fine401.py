@@ -1,5 +1,5 @@
 """Whether signaling removes each strict dilemma whose worst Nash equilibrium has both
-agents exploring (Figure 6, Table S2, SI Section S8.2), on the grid of the "fine401"
+agents exploring (Figures 6 and S10, Table S2, SI Section S10.2), on the grid of the "fine401"
 baseline sweep (401 rates plus 1e-8, ..., 1e-2), using signaling_fast.
 
 Every dilemma is evaluated on the grid of the baseline sweep; grid_size records that

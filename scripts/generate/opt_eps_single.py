@@ -1,4 +1,4 @@
-"""Reward-maximizing exploration rate of a lone agent over (d, R) (Figures 2B, 2C, S3)."""
+"""Reward-maximizing exploration rate of a lone agent over (d, R) (Figures 2B, S2, S4)."""
 
 import numpy as np
 from tqdm import tqdm

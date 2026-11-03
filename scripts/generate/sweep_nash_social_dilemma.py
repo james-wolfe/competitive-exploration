@@ -1,11 +1,11 @@
 """Equilibria, social optima, and strict social dilemmas over the (gamma, d, R) sweep.
 
 The default variant (41 exploration rates) stores the payoff matrices, which
-local_br_outcomes.py (Figure S6) reads. Three variants do not store them: "fine401" uses
+local_br_outcomes.py (Figure S8) reads. Three variants do not store them: "fine401" uses
 401 exploration rates plus the seven rates 1e-8, ..., 1e-2 at every distance and feeds
-Figures 5, 6 and S7 and Tables 2 and S2; "fine" uses 101 exploration rates, and "small_d"
+Figures 5, 6, S6, S9 and S10 and Tables 2 and S2; "fine" uses 101 exploration rates, and "small_d"
 adds rates down to 1e-8 for the shortest distances, where the socially optimal rates are
-smallest; these two feed Figures S4 and S5.
+smallest; these two feed Figures S5 and S7.
 
 The 41-rate grid misses the strict dilemmas at distances d = 2 and 3, and 101 evenly
 spaced rates still miss nearly all of them at d = 2; adding the seven small rates

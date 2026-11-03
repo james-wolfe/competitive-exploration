@@ -1,4 +1,4 @@
-"""A random distance to the distant reward, d ~ Poisson(lambda) + 1 (Section S1)."""
+"""A random distance to the distant reward, d ~ Poisson(lambda) + 1 (Section S3)."""
 
 import numpy as np
 from scipy.stats import poisson

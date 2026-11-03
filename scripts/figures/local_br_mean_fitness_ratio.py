@@ -1,4 +1,4 @@
-"""Figure S6: collective payoff reached by the local best-response dynamics, averaged
+"""Figure S8: collective payoff reached by the local best-response dynamics, averaged
 over starting pairs, relative to the global optimum."""
 
 import matplotlib.pyplot as plt

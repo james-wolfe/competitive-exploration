@@ -1,4 +1,4 @@
-"""Figure S9: probability and time for a walker to reach site d before returning to
+"""Figure S12: probability and time for a walker to reach site d before returning to
 site 0, from the gambler's-ruin formulas (curves) and simulation (points)."""
 
 import matplotlib.pyplot as plt

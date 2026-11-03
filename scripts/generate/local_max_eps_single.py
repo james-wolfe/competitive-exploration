@@ -1,5 +1,5 @@
 """Rate at the positive local maximum of a lone agent's reward curve, on the grid of
-the fine sweep (Figure S4)."""
+the fine sweep (Figure S5)."""
 
 import numpy as np
 from tqdm import tqdm
