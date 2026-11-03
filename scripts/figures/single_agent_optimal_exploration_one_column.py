@@ -19,15 +19,15 @@ rewards_data = np.load(DATA_DIR / "single_agent_rewards.npz")
 opt_data = np.load(DATA_DIR / "opt_eps_single.npz")
 T_SHOWN = [5000, 100000]
 
-# One column wide; layout in inches, from the bottom up. Both colorbars sit at the same
-# distance from the right edge; the panels of A are wider than tall, those of B square.
+# One column wide; layout in inches, from the bottom up. A and B share their columns and
+# the position and width of their colorbars; the panels of A are wider than tall, those
+# of B square.
 width = PNAS_WIDTHS["single"]
 colorbar_space, colorbar_pad, colorbar_width = 0.62, 0.08, 0.07
-left_a, left_b, gap_a, gap = 0.74, 0.42, 0.14, 0.08
-b_bottom = 0.33
-b_size = (width - left_b - gap - colorbar_space) / 2
-a_width = (width - left_a - gap_a - colorbar_space) / 2
-a_height, a_gap = 0.82, 0.08
+left, gap = 0.6, 0.14
+panel_width = (width - left - gap - colorbar_space) / 2
+b_bottom, b_size = 0.33, panel_width
+a_width, a_height, a_gap = panel_width, 0.82, 0.08
 a_bottom = b_bottom + b_size + 0.74
 height = a_bottom + 2 * a_height + a_gap + 0.24
 fig = plt.figure(figsize=(width, height))
@@ -47,7 +47,7 @@ axes = np.empty((len(d_values), len(R_values)), dtype=object)
 for a in range(len(d_values)):
     for r in range(len(R_values)):
         y = a_bottom + (len(d_values) - 1 - a) * (a_height + a_gap)
-        axes[a, r] = fig.add_axes(box(left_a + r * (a_width + gap_a), y, a_width, a_height))
+        axes[a, r] = fig.add_axes(box(left + r * (a_width + gap), y, a_width, a_height))
 for a, d in enumerate(d_values):
     for r, R in enumerate(R_values):
         ax = axes[a, r]
@@ -56,7 +56,7 @@ for a, d in enumerate(d_values):
         ax.set_xlim(0, 1)
         ax.set_ylim(total.min() - pad, total.max() + pad)
         ax.set_xticks([0, 0.25, 0.5, 0.75, 1], ["0", "", "0.5", "", "1"])
-        ax.set_yticks([5000, 10000, 15000])
+        ax.set_yticks([5000, 10000, 15000], ["5", "10", "15"])
         ax.grid(True)
         if a < len(d_values) - 1:
             ax.tick_params(labelbottom=False)
@@ -73,15 +73,21 @@ colorbar = fig.colorbar(
     ticks=[0, 0.5, 1],
 )
 colorbar.set_label("Fraction of discounted\n" r"reward from $d$")
-fig.text(0.02 / width, (a_bottom + a_height + a_gap / 2) / height, "Discounted reward",
-         rotation=90, ha="left", va="center")
+fig.text(
+    0.02 / width,
+    (a_bottom + a_height + a_gap / 2) / height,
+    r"Discounted reward ($\times 10^3$)",
+    rotation=90,
+    ha="left",
+    va="center",
+)
 
 # B
 R_edges = centers_to_edges(opt_data["R_values"])
 d_edges = centers_to_edges(opt_data["d_values"])
 T_values = list(opt_data["T_values"])
 for t, T in enumerate(T_SHOWN):
-    ax = fig.add_axes(box(left_b + t * (b_size + gap), b_bottom, b_size, b_size))
+    ax = fig.add_axes(box(left + t * (b_size + gap), b_bottom, b_size, b_size))
     image = ax.pcolormesh(
         R_edges,
         d_edges,
