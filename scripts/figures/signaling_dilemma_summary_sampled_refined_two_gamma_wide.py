@@ -12,7 +12,6 @@ from matplotlib.ticker import MultipleLocator
 
 from competitive_exploration.paths import DATA_DIR
 from competitive_exploration.plotting import (
-    PNAS_WIDTHS,
     TWO_GAMMA_PANEL_SIZE,
     place_panels,
     save_figure,
@@ -62,11 +61,13 @@ remains = shown & ~solved
 norm = plt.Normalize(np.nanmin(improvement[shown]), np.nanmax(improvement[shown]))
 
 
-# Square panels, so that the diagonal of the bottom row lies at 45 degrees, placed as in
-# Figure 5, with the colorbar on the right, at the width of a 3/4-page figure.
+# Square panels the size of those in Figure 5, so that the diagonal of the bottom row
+# lies at 45 degrees, with the colorbar on the right. The figure is only as wide as its
+# contents (0.49 in for the colorbar, its ticks, and its label), so that LaTeX places it
+# at its natural size beside the caption.
 panel = TWO_GAMMA_PANEL_SIZE
-width, left, bottom, top = PNAS_WIDTHS["one_and_half"], 0.58, 0.32, 0.2
-wspace, hspace = 0.3, 0.48
+left, bottom, top, wspace, hspace = 0.36, 0.32, 0.2, 0.3, 0.48
+width = left + 2 * panel + wspace + 0.49
 height = bottom + 2 * panel + hspace + top
 fig, axes = plt.subplots(2, len(T_values), figsize=(width, height))
 place_panels(fig, axes, panel, left, bottom, wspace, hspace)
