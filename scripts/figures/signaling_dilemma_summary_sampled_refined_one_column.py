@@ -12,6 +12,7 @@ from matplotlib.ticker import MultipleLocator
 
 from competitive_exploration.paths import DATA_DIR
 from competitive_exploration.plotting import (
+    PNAS_WIDTHS,
     TWO_GAMMA_PANEL_SIZE,
     place_panels,
     save_figure,
@@ -62,12 +63,11 @@ norm = plt.Normalize(np.nanmin(improvement[shown]), np.nanmax(improvement[shown]
 
 
 # Square panels the size of those in Figure 5, so that the diagonal of the bottom row
-# lies at 45 degrees, with the colorbar on the right. The figure is only as wide as its
-# contents (0.49 in for the colorbar, its ticks, and its label), so that LaTeX places it
-# at its natural size beside the caption.
+# lies at 45 degrees, one column wide, with the colorbar below.
 panel = TWO_GAMMA_PANEL_SIZE
-left, bottom, top, wspace, hspace = 0.36, 0.32, 0.2, 0.3, 0.48
-width = left + 2 * panel + wspace + 0.49
+colorbar_space = 0.36
+left, bottom, top, wspace, hspace = 0.36, 0.32 + colorbar_space, 0.2, 0.3, 0.48
+width = PNAS_WIDTHS["single"]
 height = bottom + 2 * panel + hspace + top
 fig, axes = plt.subplots(2, len(T_values), figsize=(width, height))
 place_panels(fig, axes, panel, left, bottom, wspace, hspace)
@@ -142,7 +142,7 @@ for t, T in enumerate(T_values):
 
 fig.text(
     (left + panel + wspace / 2) / width,
-    0.02 / height,
+    (colorbar_space + 0.02) / height,
     "Social optimum without signaling",
     ha="center",
     va="bottom",
@@ -187,20 +187,18 @@ axes[1, -1].legend(
     **LEGEND_STYLE,
 )
 
-# Centered on the two rows, over most of their height.
-bar_height = 0.7 * (2 * panel + hspace)
+# Below the panels, its label on the same line to its left.
+label_width, bar_width = 1.5, 1.35
+x0 = left + (2 * panel + wspace - label_width - bar_width) / 2
 colorbar = fig.colorbar(
     plt.cm.ScalarMappable(norm, "viridis"),
     cax=fig.add_axes(
-        [
-            (left + 2 * panel + wspace + 0.1) / width,
-            (bottom + (2 * panel + hspace - bar_height) / 2) / height,
-            0.07 / width,
-            bar_height / height,
-        ]
+        [(x0 + label_width) / width, 0.14 / height, bar_width / width, 0.07 / height]
     ),
+    orientation="horizontal",
     ticks=[5, 10, 15, 20],
 )
-colorbar.set_label("Worst Nash improvement (\\%)", labelpad=4)
+fig.text((x0 + label_width - 0.08) / width, 0.175 / height, "Worst Nash improvement (\\%)",
+         ha="right", va="center")
 
-save_figure(fig, "signaling_dilemma_summary_sampled_refined_two_gamma_wide.pdf")
+save_figure(fig, "signaling_dilemma_summary_sampled_refined_one_column.pdf")

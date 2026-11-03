@@ -104,11 +104,11 @@ the script of the same name in `scripts/generate/`; `data/README.md` describes t
 | Paper | Script or notebook | Data |
 |---|---|---|
 | Figure 1 | `lattice_schematic.py` | |
-| Figure 2 | `single_agent_optimal_exploration_one_row.py` | `single_agent_rewards.npz`, `opt_eps_single.npz` |
+| Figure 2 | `single_agent_optimal_exploration_one_column.py` | `single_agent_rewards.npz`, `opt_eps_single.npz` |
 | Figure 3 | `payoff_matrix_and_slices.py` | `two_agent_payoffs.npz` |
 | Figure 4 | `four_regimes_payoff_and_localBR.py` | `two_agent_local_br.npz` |
-| Figure 5 | `nash_social_dilemma_classification_two_gamma_wide.py` | `sweep_nash_social_dilemma_fine401.npz` |
-| Figure 6 | `signaling_dilemma_summary_sampled_refined_two_gamma_wide.py` | `sweep_nash_social_dilemma_fine401.npz`, `signaling_fine401.npz` |
+| Figure 5 | `nash_social_dilemma_classification_one_column.py` | `sweep_nash_social_dilemma_fine401.npz` |
+| Figure 6 | `signaling_dilemma_summary_sampled_refined_one_column.py` | `sweep_nash_social_dilemma_fine401.npz`, `signaling_fine401.npz` |
 | Figure S1 | `markov_td_sim.py` | `td_learner_sim.npz` |
 | Figure S2 | `opt_eps_single_three_gamma.py` | `opt_eps_single.npz` |
 | Figure S3 | `threshold_reward_ratio.py` | `threshold_sweep.npz` |

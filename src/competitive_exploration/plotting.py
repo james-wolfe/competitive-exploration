@@ -23,7 +23,7 @@ PNAS_WIDTHS = {"single": 8.7 * CM, "one_and_half": 11.4 * CM, "double": 512 / 72
 # panel.
 PANEL_SIZE = 1.4
 # Side of the square panels of the two-discount-factor Figures 5 and 6, in inches: as
-# large as fits two panels and a legend or colorbar in a 3/4-page (11.4 cm) figure.
+# large as fits two panels side by side in one column (8.7 cm).
 TWO_GAMMA_PANEL_SIZE = 1.36
 
 

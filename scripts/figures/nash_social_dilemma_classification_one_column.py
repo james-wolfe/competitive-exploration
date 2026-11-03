@@ -73,10 +73,10 @@ def hatch_cells(ax, mask):
     )
 
 
-# Square panels the size of those in Figure 6, with the legend on the right, at the
-# width of a 3/4-page figure.
+# Square panels the size of those in Figure 6, one column wide, with the legend below.
 panel = TWO_GAMMA_PANEL_SIZE
-width, left, bottom, top, gap = PNAS_WIDTHS["one_and_half"], 0.58, 0.33, 0.2, 0.1
+legend_space = 0.4
+width, left, bottom, top, gap = PNAS_WIDTHS["single"], 0.56, 0.33 + legend_space, 0.2, 0.08
 height = bottom + 2 * panel + gap + top
 fig, axes = plt.subplots(
     2, len(data["T_values"]), figsize=(width, height), sharex=True, sharey=True
@@ -107,7 +107,7 @@ for ax in axes.ravel():
         spine.set_linewidth(0.6)
 for row, label in enumerate(["Nash equilibrium", "Social optimum"]):
     axes[row, 0].set_ylabel(r"Distance $d$")
-    add_row_label(axes[row, 0], label, x=-0.37)
+    add_row_label(axes[row, 0], label, x=-0.36)
 
 present = np.union1d(types["nash_type"], types["social_optimum_type"])
 fig.legend(
@@ -119,18 +119,17 @@ fig.legend(
             facecolor="white",
             edgecolor="black",
             hatch="//////",
-            label="strict social\ndilemma",
+            label="strict social dilemma",
         )
     ],
-    loc="center left",
-    bbox_to_anchor=(
-        (left + 2 * panel + gap + 0.08) / width,
-        (bottom + panel + gap / 2) / height,
-    ),
+    loc="upper center",
+    bbox_to_anchor=(0.5, legend_space / height),
+    ncol=3,
+    columnspacing=1.0,
     handlelength=1.0,
     handletextpad=0.5,
     borderaxespad=0,
     frameon=False,
 )
 
-save_figure(fig, "nash_social_dilemma_classification_two_gamma_wide.pdf")
+save_figure(fig, "nash_social_dilemma_classification_one_column.pdf")
