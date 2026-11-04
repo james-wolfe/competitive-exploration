@@ -148,7 +148,7 @@ fig.text(
     va="bottom",
 )
 axes[0, 0].set_ylabel(r"Distance $d$")
-axes[1, 0].set_ylabel("Worst Nash payoff")
+axes[1, 0].set_ylabel("Minimum Nash payoff")
 
 
 def marker(label, shape, face="0.75", edge="black", width=0.3, size=3):
@@ -187,8 +187,9 @@ axes[1, -1].legend(
     **LEGEND_STYLE,
 )
 
-# Below the panels, its label on the same line to its left.
-label_width, bar_width = 1.5, 1.35
+# Below the panels, its label on the same line to its left. The label's width, with
+# the gap to the bar, centers the label, bar, and tick labels under the panels.
+label_width, bar_width = 1.4, 1.35
 x0 = left + (2 * panel + wspace - label_width - bar_width) / 2
 colorbar = fig.colorbar(
     plt.cm.ScalarMappable(norm, "viridis"),
@@ -198,7 +199,15 @@ colorbar = fig.colorbar(
     orientation="horizontal",
     ticks=[5, 10, 15, 20],
 )
-fig.text((x0 + label_width - 0.08) / width, 0.175 / height, "Worst Nash improvement (\\%)",
-         ha="right", va="center")
+# The percent sign goes on the ticks, so the label is two lines without a unit; its
+# first line is level with the bar.
+colorbar.ax.xaxis.set_major_formatter(lambda value, _: rf"{value:g}\%")
+fig.text(
+    (x0 + label_width - 0.08) / width,
+    0.22 / height,
+    "Nash improvement\n(with vs.\\ without signaling)",
+    ha="right",
+    va="top",
+)
 
 save_figure(fig, "signaling_dilemma_summary_sampled_refined_one_column.pdf")
