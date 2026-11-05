@@ -26,9 +26,9 @@ exploration rate `eps_grid[i]` whose competitor has rate `eps_grid[j]`.
 | `sweep_nash_social_dilemma.npz` | Payoff matrices, equilibrium types, collective payoffs, strict and Pareto dilemmas over (gamma, d, R), 41 rates | Fig. S8 (via `local_br_outcomes.npz`); checks |
 | `sweep_nash_social_dilemma_fine.npz` | The same summaries with 101 rates | Figs. S5, S7 |
 | `sweep_nash_social_dilemma_small_d.npz` | The same summaries for d = 1-5, with rates down to 1e-8 | Fig. S7 |
-| `sweep_nash_social_dilemma_fine401.npz` | The same summaries with 401 rates plus 1e-8, ..., 1e-2 (407 rates), d = 1-30 | Figs. 5, 6, S6, S9, S10; Tables 2, S2 |
+| `sweep_nash_social_dilemma_fine401.npz` | The same summaries with 401 rates plus 1e-8, ..., 1e-2 (407 rates), d = 1-30, plus both-stay counts and, for each Pareto dilemma, the dominated Nash equilibrium and dominating locally stable point with both agents' payoffs | Figs. 5, 6, S6, S9, S10; Tables 2, S2; checks |
 | `signaling_fine401.npz` | Signaling outcome for each strict dilemma whose worst Nash equilibrium has both agents exploring, on the 407-rate grid, d = 2-30 (about 350 CPU-hours; see the README) | Figs. 6, S10; Table S2 |
-| `locally_stable_points.npz` | Locally stable points with and without signaling at d = 4, R = 2.1 | Table 3 |
+| `locally_stable_points.npz` | Locally stable points with and without signaling at d = 4, R = 2.1, with collective and individual payoffs | Table 3 |
 | `dilemma_kinds.npz` | Which kinds of dilemma (collective and Pareto) occur over nine discount factors | Table S1 |
 | `td_learner_sim.npz` | Mean reward of simulated TD learners and the Markov chain expectation | Fig. S1 |
 | `threshold_sweep.npz` | Threshold reward ratio R*(d, T) and the rate the optimum jumps to there, d = 1-40 and 85 horizons T = 1e2-1e9, plus the three paper horizons | Fig. S3 |

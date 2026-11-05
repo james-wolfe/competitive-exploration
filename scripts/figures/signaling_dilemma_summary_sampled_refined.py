@@ -130,7 +130,7 @@ for t, T in enumerate(T_values):
     ax.grid(True)
 
 axes[0, 1].set_xlabel(r"Reward ratio $R$")
-axes[1, 1].set_xlabel("Social optimum without signaling")
+axes[1, 1].set_xlabel("Maximum locally stable payoff without signaling")
 axes[0, 0].set_ylabel(r"Distance $d$")
 axes[1, 0].set_ylabel("Worst Nash payoff")
 
