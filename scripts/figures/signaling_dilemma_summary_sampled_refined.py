@@ -11,7 +11,6 @@ from matplotlib.ticker import MultipleLocator
 
 from competitive_exploration.paths import DATA_DIR
 from competitive_exploration.plotting import (
-    PANEL_SIZE,
     place_panels,
     save_figure,
     use_paper_style,
@@ -57,10 +56,13 @@ remains = shown & ~solved
 norm = plt.Normalize(np.nanmin(improvement[shown]), np.nanmax(improvement[shown]))
 
 
-# Square panels the size of those in Figure 4 (and Figure 5).
-width, height, left, bottom, wspace, hspace = 5.73, 3.82, 0.36, 0.32, 0.28, 0.48
+# Square panels, so that the diagonal of the bottom row lies at 45 degrees, filling the
+# 6.5 in text width of the SI Appendix with the colorbar on the right.
+width, panel = 6.5, 1.5
+left, bottom, top, wspace, hspace = 0.5, 0.38, 0.25, 0.3, 0.55
+height = bottom + 2 * panel + hspace + top
 fig, axes = plt.subplots(2, len(T_values), figsize=(width, height))
-place_panels(fig, axes, PANEL_SIZE, left, bottom, wspace, hspace)
+place_panels(fig, axes, panel, left, bottom, wspace, hspace)
 for ax in axes[0, 1:]:
     ax.sharex(axes[0, 0])
     ax.sharey(axes[0, 0])
@@ -85,6 +87,7 @@ for t, T in enumerate(T_values):
             zorder=2,
         )
     ax.set_title(rf"$\gamma = 1 - 1/{T}$")
+    ax.set_xlabel(r"Reward ratio $R$")
     ax.set_yticks([10, 20, 30])
     ax.grid(True)
 
@@ -129,10 +132,9 @@ for t, T in enumerate(T_values):
     ax.xaxis.get_offset_text().set_visible(False)
     ax.grid(True)
 
-axes[0, 1].set_xlabel(r"Reward ratio $R$")
-axes[1, 1].set_xlabel("Maximum locally stable payoff without signaling")
+axes[1, 1].set_xlabel("Social optimum payoff without signaling")
 axes[0, 0].set_ylabel(r"Distance $d$")
-axes[1, 0].set_ylabel("Worst Nash payoff")
+axes[1, 0].set_ylabel("Minimum Nash payoff")
 
 
 def marker(label, shape, face="0.75", edge="black", width=0.3, size=3):
@@ -175,13 +177,16 @@ colorbar = fig.colorbar(
     plt.cm.ScalarMappable(norm, "viridis"),
     cax=fig.add_axes(
         [
-            (left + 3 * PANEL_SIZE + 2 * wspace + 0.1) / width,
-            (bottom + PANEL_SIZE + hspace) / height,
-            0.07 / width,
-            PANEL_SIZE / height,
+            (left + 3 * panel + 2 * wspace + 0.12) / width,
+            bottom / height,
+            0.08 / width,
+            (2 * panel + hspace) / height,
         ]
     ),
+    ticks=[5, 10, 15, 20],
 )
-colorbar.set_label("Worst Nash\nimprovement (\\%)", labelpad=4)
+# The percent sign goes on the ticks, as in Figure 6.
+colorbar.ax.yaxis.set_major_formatter(lambda value, _: rf"{value:g}\%")
+colorbar.set_label("Nash improvement\n(with vs.\\ without signaling)", labelpad=4)
 
 save_figure(fig, "signaling_dilemma_summary_sampled_refined.pdf")
