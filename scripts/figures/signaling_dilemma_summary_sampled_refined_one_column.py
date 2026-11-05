@@ -143,7 +143,7 @@ for t, T in enumerate(T_values):
 fig.text(
     (left + panel + wspace / 2) / width,
     (colorbar_space + 0.02) / height,
-    "Social optimum without signaling",
+    "Maximum locally stable payoff without signaling",
     ha="center",
     va="bottom",
 )

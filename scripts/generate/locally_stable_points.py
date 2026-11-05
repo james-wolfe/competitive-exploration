@@ -43,13 +43,18 @@ def main():
             keys.append((i, i, i, i))
             groups[(i, i, i, i)] = [(i, i, i, i)]
 
+    # Each agent's payoff at the point of each group with the largest collective payoff.
+    best = {key: max(groups[key], key=lambda p: W[p]) for key in keys}
+
     np.savez(
         DATA_DIR / "locally_stable_points.npz",
         baseline_eps=EPS_GRID[np.array(baseline_points)],
         baseline_payoff=[Z[i, j] + Z[j, i] for i, j in baseline_points],
+        baseline_payoffs=[(Z[i, j], Z[j, i]) for i, j in baseline_points],
         baseline_nash=[baseline_nash[p] for p in baseline_points],
         signaling_eps=EPS_GRID[np.array(keys)],
         signaling_payoff=[max(W[p] for p in groups[key]) for key in keys],
+        signaling_payoffs=[(U1[best[key]], U2[best[key]]) for key in keys],
         signaling_nash=[any(nash[p] for p in groups[key]) for key in keys],
         signaling_locally_stable=[any(local[p] for p in groups[key]) for key in keys],
         d=d,

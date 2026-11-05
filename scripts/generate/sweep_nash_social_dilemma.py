@@ -3,7 +3,8 @@
 The default variant (41 exploration rates) stores the payoff matrices, which
 local_br_outcomes.py (Figure S8) reads. Three variants do not store them: "fine401" uses
 401 exploration rates plus the seven rates 1e-8, ..., 1e-2 at every distance and feeds
-Figures 5, 6, S6, S9 and S10 and Tables 2 and S2; "fine" uses 101 exploration rates, and "small_d"
+Figures 5, 6, S6, S9 and S10, Tables 2 and S2, and the list of strict Pareto dilemmas in
+checks.ipynb; "fine" uses 101 exploration rates, and "small_d"
 adds rates down to 1e-8 for the shortest distances, where the socially optimal rates are
 smallest; these two feed Figures S5 and S7.
 
@@ -55,7 +56,7 @@ def analyze(Z, eps_grid):
     local_points, local = find_locally_stable(Z)
     optimal_points, optimal = social_optimum(Z)
     global_points, _ = social_optimum(Z, among="all")
-    symmetric, anti_coordination, _, _ = classify_points(local_points)
+    symmetric, anti_coordination, both_stay, _ = classify_points(local_points)
 
     out = {
         "nash_type": outcome_code(nash_points),
@@ -71,12 +72,15 @@ def analyze(Z, eps_grid):
         "worst_nash_type": -1,
         "strict_dilemma": False,
         "pareto_dilemma": False,
+        "pareto_pair": np.full(4, -1),
+        "pareto_payoffs": np.full(4, np.nan),
     }
 
     # Table 2: is each locally stable point Nash (row) and socially optimal (column)?
     for name, points in [
         ("symmetric", symmetric),
         ("anti_coordination", anti_coordination),
+        ("both_stay", both_stay),
     ]:
         counts = np.zeros((2, 2), dtype=int)
         for point in points:
@@ -85,7 +89,10 @@ def analyze(Z, eps_grid):
 
     # Strict dilemma: the worst Nash equilibrium is collectively worse than the best
     # locally stable point. It is a Pareto dilemma if some locally stable point is
-    # strictly better for both agents than some Nash equilibrium.
+    # strictly better for both agents than some Nash equilibrium. pareto_pair records
+    # the dominated Nash equilibrium (i, j) with the lowest collective payoff and the
+    # dominating locally stable point (k, l) with the highest; pareto_payoffs are
+    # Z[i, j], Z[j, i], Z[k, l], Z[l, k].
     if (
         nash_points
         and local_points
@@ -98,9 +105,14 @@ def analyze(Z, eps_grid):
         )
         out["strict_dilemma"] = True
         out["worst_nash_type"] = outcome_code(map(tuple, worst))
-        for i, j in np.argwhere(nash):
-            both = (Z > Z[i, j] + TOL) & (Z.T > Z[j, i] + TOL)
-            out["pareto_dilemma"] |= bool((local & both).any())
+        for i, j in sorted(np.argwhere(nash), key=lambda p: W[tuple(p)]):
+            both = local & (Z > Z[i, j] + TOL) & (Z.T > Z[j, i] + TOL)
+            if both.any():
+                k, l = np.unravel_index(np.argmax(np.where(both, W, -np.inf)), W.shape)
+                out["pareto_dilemma"] = True
+                out["pareto_pair"] = np.array([i, j, k, l])
+                out["pareto_payoffs"] = np.array([Z[i, j], Z[j, i], Z[k, l], Z[l, k]])
+                break
     return out
 
 
