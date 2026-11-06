@@ -1,7 +1,7 @@
 # Generated data
 
 The files described here are archived on Zenodo at
-[doi:10.5281/zenodo.23627789](https://doi.org/10.5281/zenodo.23627789), as
+[doi:10.5281/zenodo.23627788](https://doi.org/10.5281/zenodo.23627788), as
 `competitive-exploration-data.zip`. Unpack it so that the `.npz` files sit in
 `data/generated/` of the code repository,
 [github.com/james-wolfe/competitive-exploration](https://github.com/james-wolfe/competitive-exploration)

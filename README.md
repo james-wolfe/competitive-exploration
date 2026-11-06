@@ -56,7 +56,7 @@ stops with an error while any script differs from its cell.
 ### Using the archived data
 
 The generated data are archived on Zenodo at
-[doi:10.5281/zenodo.23627789](https://doi.org/10.5281/zenodo.23627789). To draw the figures and
+[doi:10.5281/zenodo.23627788](https://doi.org/10.5281/zenodo.23627788). To draw the figures and
 tables without recomputing anything, unpack the archive so that the `.npz` files sit in
 `data/generated/`, then run
 
@@ -158,8 +158,9 @@ The package modules follow the paper:
 James P. Wolfe and Joshua B. Plotkin, *Competitive exploration in structured
 environments*, [arXiv:2610.34643](https://arxiv.org/abs/2610.34643) (2026).
 
-The version of the code used for the paper is archived on Zenodo at
-[doi:10.5281/zenodo.23671168](https://doi.org/10.5281/zenodo.23671168).
+The code is archived on Zenodo at
+[doi:10.5281/zenodo.23671167](https://doi.org/10.5281/zenodo.23671167), which resolves to the
+latest release; each release also has its own DOI, listed there.
 
 ## License
 
